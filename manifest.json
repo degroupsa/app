@@ -1,0 +1,58 @@
+{
+    "name": "App Agroactiva",
+    "short_name": "AgroApp",
+    "description": "Aplicación para gestión en Agroactiva",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+        {
+            "src": "/images/icons/apple-icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/favicon-96x96.png", 
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/apple-icon-120x120.png", 
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/apple-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/ms-icon-144x144.png", 
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any" 
+        },
+        {
+            "src": "/images/icons/apple-icon-152x152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/icons/android-chrome-384x384.png", 
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/android-chrome-512x512.png", 
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
