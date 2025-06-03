@@ -1,0 +1,521 @@
+/* --------------------
+   RESET BÁSICO Y ESTILOS GLOBALES
+   -------------------- */
+* {
+margin: 0; /* Corregido: sin unidad, se asume 0. Mejor ser explícito. */
+padding: 0; /* Corregido: sin unidad, se asume 0. */
+box-sizing: border-box; 
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+line-height: 1.6;
+color: #333;
+background-color: #f7f4f4; 
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+background-image: url('images/fondo1.jpeg'); 
+background-size: cover;
+background-position: center center; 
+background-attachment: fixed; 
+background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6 {
+margin-bottom: 0.75em;
+color: #0080ff; 
+line-height: 1.3; /* Corregido: 0.8 era muy pequeño, podía causar superposición */
+}
+
+p {
+margin-bottom: 1em;
+}
+
+ul {
+list-style-position: inside;
+padding-left: 0; 
+}
+
+/* --------------------
+   CABECERA Y NAVEGACIÓN
+   -------------------- */
+header {
+background: linear-gradient(to bottom, rgba(20, 20, 20, 0.8) 70%, #ffee00 130%, rgba(20, 20, 20, 0) 150%);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(6px);
+color: white; 
+position: sticky; 
+top: 0;
+width: 100%;
+z-index: 1000; 
+box-shadow: 0 3px 6px #ffee00; 
+border-bottom: 1px solid rgba(255, 255, 255, 0.20); 
+display: flex; 
+justify-content: space-between; 
+align-items: center; 
+padding: 0.8em 1.5em; /* Ajustado padding horizontal para mejor manejo en móviles */
+}
+
+header h1 {
+margin: 0; 
+font-size: 2.2em; /* Corregido: 2.5.0em a 2.2em, ligeramente reducido para responsividad */
+font-weight: 700;
+color: white; 
+background-color: transparent; 
+padding: 0.1em 0; 
+text-shadow: 
+  0px 10px 13px rgba(0,0,0,0.7), 
+  0px 4px 8px rgba(0,0,0,0.5);
+}
+
+nav {
+margin-top: 0; 
+display: flex; 
+align-items: center;
+  flex-wrap: wrap; /* Permitir que los botones se envuelvan si no caben */
+  justify-content: flex-end; /* Alinear a la derecha si se envuelven */
+}
+
+.nav-button {
+background-color: transparent; 
+color: white;
+/*border: 1px solid rgb(251, 255, 0); */ /* Mantenido tu comentario */
+padding: 0.4em 0.9em;  /* Ligeramente ajustado para consistencia */
+margin: 0.2em 0.5em;   /* Ajustado margen para mejor envolvimiento */
+cursor: pointer;
+border-radius: 10px; 
+font-size: 0.8em; 
+font-weight: 500;
+transition: background-color 0.3s, color 0.3s, border-color 0.3s, text-shadow 0.3s;
+text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.5); 
+}
+
+.nav-button:hover {
+color: #ffee00; 
+border-color: rgba(255, 255, 255, 0.9); /* Se mantiene si activas el borde */
+text-shadow: none;
+}
+
+.nav-button.active { 
+color: #ffee00; 
+font-weight: bold;
+border-color: white; /* Se mantiene si activas el borde */
+text-shadow: none;
+}
+
+/* --------------------
+   CONTENIDO PRINCIPAL
+   -------------------- */
+main {
+flex-grow: 1;
+width: 100%;
+  padding: 0 15px; /* Añadido padding lateral para evitar que el contenido toque los bordes en móvil */
+}
+
+.content-section {
+display: none;
+padding: 20px; /* Ligeramente reducido */
+margin: 0 auto 25px auto; /* Ligeramente reducido */
+border-radius: 8px;
+max-width: 1100px; 
+  box-sizing: border-box; /* Asegurar que el padding no aumente el ancho total */
+}
+
+.content-section.active {
+display: block;
+}
+
+/* Ajuste para el padding-top, considera la altura del header */
+/* La altura del header es aprox. 0.8em + 0.8em (padding) + altura del h1/nav. */
+/* Asumamos unos 60-70px para escritorio. Este valor es CRÍTICO para responsividad. */
+.content-section:not(#inicioSection).active {
+background-color: rgba(244, 247, 246, 0.9); 
+box-shadow: 0 0 15px rgba(0,0,0,0.1); 
+margin-top: 20px; 
+padding-top: calc(70px + 20px); /* EJEMPLO: header 70px + 20px margen */
+}
+
+.content-section:not(#inicioSection) form fieldset {
+background-color: rgba(255, 255, 255, 0.9); 
+border: 1px solid #e0e0e0;
+  padding: 1.2em; /* Ligeramente reducido */
+}
+
+.content-section:not(#inicioSection) #listaProductos li, 
+.content-section:not(#inicioSection) #listaInteresados li, 
+.content-section:not(#inicioSection) #listaPresupuestos li {
+background-color: #41353d4f; 
+color: black;
+border: 1px solid #ffee00;
+  padding: 0.8em; /* Ligeramente reducido */
+  margin-bottom: 0.6em; /* Ligeramente reducido */
+}
+
+
+/* --- ESTILOS PARA SECCIÓN INICIO --- */
+#inicioSection.content-section.active {
+display: flex; 
+flex-direction: column;
+justify-content: center; 
+align-items: center; 
+color: #ffffff; 
+padding: 1.5em; /* Reducido para móviles */
+margin: 0; 
+max-width: none; 
+width: 100%; 
+min-height: calc(100vh - 70px); /* EJEMPLO: header 70px */
+box-shadow: none; 
+border-radius: 0; 
+background-color: transparent; 
+padding-top: calc(70px + 30px); /* EJEMPLO: header 70px + 30px margen */
+  box-sizing: border-box;
+}
+
+#inicioSection .inicio-content-wrapper {
+background-color: rgba(0, 0, 0, 0.75); 
+padding: 1.5em; /* Reducido */
+border-radius: 8px; 
+max-width: 90%; /* Para que se ajuste mejor en móviles */
+  width: 700px; /* Mantenemos un max-width para escritorio */
+text-align: center; 
+}
+@media screen and (min-width: 769px) {
+    #inicioSection .inicio-content-wrapper {
+        max-width: 700px; /* Restaura el max-width para pantallas más grandes */
+    }
+}
+
+
+#inicioSection .inicio-content-wrapper h2, 
+#inicioSection .inicio-content-wrapper h3,
+#inicioSection .inicio-content-wrapper p, 
+#inicioSection .inicio-content-wrapper li {
+color: #ffffff; 
+text-shadow: 
+  0px 1px 3px rgba(0,0,0,0.9), 
+  0px 0px 8px rgba(0,0,0,0.8); 
+}
+#inicioSection .inicio-content-wrapper h2 {
+font-size: 2.2em; /* Reducido */
+margin-bottom: 0.5em;
+font-weight: 700;
+}
+#inicioSection .inicio-content-wrapper h3 {
+font-size: 1.5em; /* Reducido */
+color: #f0f0f0; 
+border-bottom: 1px solid #ffee00b9; 
+padding-bottom: 0.3em;
+margin-top: 1.2em; /* Reducido */
+margin-bottom: 0.6em; /* Reducido */
+}
+#inicioSection .inicio-content-wrapper p, 
+#inicioSection .inicio-content-wrapper li {
+font-size: 1em; /* Reducido */
+line-height: 1.6; /* Ajustado */
+margin-bottom: 0.7em; /* Reducido */
+}
+#inicioSection .inicio-content-wrapper ul {
+list-style: none; 
+padding-left: 0;
+margin-bottom: 1.2em; /* Reducido */
+display: inline-block; 
+text-align: left;
+}
+#inicioSection .inicio-content-wrapper ul li {
+padding-left: 1.5em;
+position: relative;
+}
+#inicioSection .inicio-content-wrapper ul li::before {
+content: '✓'; 
+color: #00ff00; 
+position: absolute;
+left: 0;
+font-weight: bold;
+}
+#inicioSection .inicio-link { 
+color: #009dffe1; 
+text-decoration: underline;
+font-weight: bold;
+}
+#inicioSection .inicio-link:hover {
+color: #ADD8E6; 
+text-decoration: underline;
+}
+/* --- FIN ESTILOS SECCIÓN INICIO --- */
+
+
+/* Títulos H2 para otras secciones */
+.content-section:not(#inicioSection) h2 { 
+color: #000000; 
+margin-top: 0;
+margin-bottom: 1em; /* Ajustado */
+border-bottom: 2px solid #000000;
+padding-bottom: 0.4em; /* Ajustado */
+text-align: center;
+  font-size: 1.6em; /* Ligeramente reducido */
+}
+
+
+hr { border: 0; height: 1px; background-color: #000000; margin: 1.5em 0;} /* Reducido margen */
+form {display: flex; flex-direction: column; gap: 0.8em; } /* Reducido gap */
+form div, form fieldset { margin-bottom: 0.8em;} /* Reducido margen */
+label {display: block; font-weight: 600; margin-bottom: 0.4em; color: #000000b7; font-size: 0.9em;} /* Reducido tamaño y margen */
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea, select {
+  width: 100%; 
+  padding: 0.65em; /* Reducido */
+  border: 1px solid #00000065; 
+  border-radius: 4px; 
+  font-size: 0.95em; /* Reducido */
+  color: #000000cc; 
+  background-color: #ffffff; 
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="number"]:focus, textarea:focus, select:focus {border-color: #80bdff; outline: 0; box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);}
+textarea {min-height: 70px; resize: vertical; } /* Reducido min-height */
+fieldset {border: 1px solid #ced4da; border-radius: 4px; padding: 1.2em; margin-bottom: 1.2em; background-color: rgba(255, 255, 255, 0.9);} /* Reducido padding y margen */
+legend {font-weight: 600; color: #28a745; padding: 0 0.5em; margin-left: -0.5em; font-size: 0.95em;} /* Reducido tamaño */
+button, .button-primary, .button-secondary { 
+  padding: 0.7em 1.3em; /* Reducido */
+  font-size: 0.95em; /* Reducido */
+  font-weight: 500; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  border: none; 
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;
+}
+button:active, .button-primary:active, .button-secondary:active {transform: translateY(1px); }
+.button-primary {background-color: #28a745; color: white; border: 1px solid #28a745;}
+.button-primary:hover {background-color: #218838; border-color: #1e7e34;}
+.button-secondary {background-color: #6c757d; color: white; border: 1px solid #6c757d; margin-left: 0.5em; }
+.button-secondary:hover {background-color: #5a6268; border-color: #545b62;}
+
+form div:has(> button[type="submit"]), 
+form div:has(> .button-primary), 
+form div:has(> .button-secondary) { 
+  display: flex; 
+  gap: 0.5em; 
+  justify-content: flex-start; 
+  margin-top: 1.2em; /* Reducido */
+  flex-wrap: wrap; /* Permitir que los botones de formulario se envuelvan */
+}
+
+#listaProductos ul, #listaInteresados ul, #listaPresupuestos ul {list-style: none; padding: 0;}
+#listaProductos li, #listaInteresados li, #listaPresupuestos li {
+  background-color: #41353d4f; /* Mantenido tu color */
+  color: black; /* Mantenido tu color */
+  border: 1px solid #ffee00; /* Mantenido tu borde */
+  padding: 0.8em; /* Reducido */
+  margin-bottom: 0.6em; /* Reducido */
+  border-radius: 4px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+#listaProductos li strong, #listaInteresados li strong, #listaPresupuestos li strong {color: black; font-weight: 600;}
+#listaProductos li small, #listaInteresados li small, #listaPresupuestos li small {display: block; color: black; font-size: 0.8em; margin-top: 0.3em;} /* Reducido tamaño y margen */
+#listaProductos li button, #listaInteresados li button, #listaPresupuestos li button {
+  margin-top: 0.4em; 
+  margin-right: 0.4em; 
+  padding: 0.3em 0.6em; 
+  font-size: 0.8em; /* Reducido */
+  text-transform: none; 
+  letter-spacing: normal;
+}
+
+/* Contenedor para botones en items de lista para mejor manejo en móvil */
+.botones-item {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los botones se envuelvan */
+    gap: 0.4em; /* Espacio entre botones */
+    margin-top: 0.4em;
+}
+/* Aplicar a los botones dentro de .botones-item si es necesario */
+.botones-item button {
+    flex-grow: 1; /* Para que los botones intenten ocupar espacio disponible */
+    min-width: 80px; /* Un ancho mínimo para que no se hagan demasiado pequeños */
+}
+
+
+button.btn-editar-producto, button.btn-editar-presupuesto, button.btn-editar-interesado {background-color: #ffc107; color: #0e0e0e; border-color: #ffc107;}
+button.btn-editar-producto:hover, button.btn-editar-presupuesto:hover, button.btn-editar-interesado:hover {background-color: #e0a800; border-color: #d39e00;}
+button.btn-eliminar-producto, button.btn-eliminar-presupuesto, button.btn-eliminar-interesado {color: #000000; background-color: #ffffff; border: 1px solid red;} /* Añadido borde para visibilidad */
+button.btn-eliminar-producto:hover, button.btn-eliminar-presupuesto:hover, button.btn-eliminar-interesado:hover {background-color: #ffee00; color: #000000; border-color: #ff0019;}
+#itemsPresupuestoActualDiv li {padding: 0.4em 0; border-bottom: 1px dotted #eee; background-color: transparent; box-shadow: none; border-radius: 0; color: #333333; font-size: 0.9em;}
+#itemsPresupuestoActualDiv li:last-child {border-bottom: none;}
+footer {background-color: #40343f; color: white; text-align: center; padding: 0.8em; margin-top: auto; font-size: 0.9em;} /* Reducido padding y tamaño */
+
+/* --------------------
+    MEDIA QUERIES PARA RESPONSIVIDAD
+   -------------------- */
+@media screen and (max-width: 768px) {
+ header {
+ flex-direction: column; /* Apilar título y navegación */
+ padding: 0.8em 1em; /* Ajustar padding */
+        /* La altura del header ahora será dinámica, basada en su contenido. */
+        /* Los cálculos de padding-top en .content-section necesitarán un valor fijo */
+        /* o una solución JS si la altura del header varía mucho. */
+        /* Por ahora, usaremos un valor estimado para el padding-top. */
+ }
+
+ header h1 {
+ font-size: 1.8em; 
+ margin-bottom: 0.4em; 
+        text-align: center; 
+ }
+
+ nav {
+  flex-direction: column; 
+ width: 100%;
+        align-items: center; /* Centrar botones */
+ }
+
+ .nav-button {
+ width: 80%; 
+ margin: 0.35em 0; /* Margen vertical, auto horizontal para centrar */
+ padding: 0.6em;
+        font-size: 0.85em;
+        text-align: center;
+ }
+
+    main {
+        padding: 0 10px; 
+    }
+
+    .content-section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    /* Estimación de altura del header en móvil: ej. Título (30px) + Nav (4 botones * 35px) + paddings/margins ~ 180-200px */
+    /* Es mejor medirlo con las herramientas de desarrollador una vez apilado */
+    .content-section:not(#inicioSection).active {
+        padding-top: calc(120px + 15px); /* AJUSTAR 120px A LA ALTURA REAL DEL HEADER EN MÓVIL */
+    }
+     #inicioSection.content-section.active {
+        padding-top: calc(120px + 20px); /* AJUSTAR 120px A LA ALTURA REAL DEL HEADER EN MÓVIL */
+        min-height: calc(100vh - 120px); /* AJUSTAR 120px */
+    }
+
+    #inicioSection .inicio-content-wrapper {
+        padding: 1.2em;
+        width: 95%; /* Que ocupe casi todo el ancho */
+        max-width: 95%;
+    }
+     #inicioSection .inicio-content-wrapper h2 {
+        font-size: 1.9em; 
+    }
+    #inicioSection .inicio-content-wrapper h3 {
+        font-size: 1.4em; 
+    }
+    #inicioSection .inicio-content-wrapper p, 
+    #inicioSection .inicio-content-wrapper li {
+        font-size: 0.95em; 
+    }
+
+
+    .content-section:not(#inicioSection) h2 {
+        font-size: 1.4em; /* Reducido */
+    }
+
+    form div, form fieldset {
+        margin-bottom: 0.7em;
+    }
+    label {
+        font-size: 0.9em;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea, select {
+        padding: 0.6em;
+        font-size: 0.9em;
+    }
+    button, .button-primary, .button-secondary {
+        padding: 0.75em 1em; /* Un poco más de padding vertical para mejor toque */
+        font-size: 0.9em;
+        width: 100%; /* Botones de formulario ocupan todo el ancho */
+        margin-left: 0; /* Resetear margen para botones de formulario */
+        margin-bottom: 0.6em; /* Espacio si se apilan */
+    }
+    .button-secondary {
+        margin-top: 0.5em; /* Si hay un botón primario antes */
+    }
+     /* Asegurar que los botones dentro de un div de formulario se apilen */
+    form div:has(> button[type="submit"]), 
+    form div:has(> .button-primary), 
+    form div:has(> .button-secondary) { 
+        flex-direction: column;
+    }
+
+
+    #listaProductos li, 
+    #listaInteresados li, 
+    #listaPresupuestos li {
+        padding: 0.7em;
+        font-size: 0.85em;
+    }
+    #listaProductos li small, 
+    #listaInteresados li small, 
+    #listaPresupuestos li small {
+        font-size: 0.8em;
+    }
+
+    .botones-item {
+        flex-direction: row; /* Mantener en fila si caben */
+        justify-content: flex-start; /* Alinear al inicio */
+    }
+    .botones-item button {
+        padding: 0.4em 0.7em; 
+        font-size: 0.75em;
+        flex-grow: 0; /* No crecer, mantener tamaño intrínseco */
+        width: auto; /* Ancho automático */
+        margin-bottom: 0.3em; /* Espacio si se envuelven */
+    }
+
+    #itemsPresupuestoActualDiv li {
+        font-size: 0.85em;
+    }
+    #itemsPresupuestoActualDiv li button.btn-quitar-item-presupuesto {
+        padding: 0.2em 0.4em;
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 0.6em 0.8em;
+    }
+    header h1 {
+        font-size: 1.6em;
+    }
+    .nav-button {
+        font-size: 0.8em;
+        width: 90%;
+    }
+    
+    /* Re-ajustar padding-top si la altura del header cambia significativamente en este breakpoint */
+    /* Por ejemplo, si ahora el header mide 90px: */
+    .content-section:not(#inicioSection).active {
+        padding-top: calc(100px + 10px); /* AJUSTAR 100px */
+    }
+     #inicioSection.content-section.active {
+        padding-top: calc(100px + 15px); /* AJUSTAR 100px */
+        min-height: calc(100vh - 100px); /* AJUSTAR 100px */
+    }
+
+    #inicioSection .inicio-content-wrapper h2 {
+        font-size: 1.7em; 
+    }
+    #inicioSection .inicio-content-wrapper h3 {
+        font-size: 1.3em; 
+    }
+    .content-section:not(#inicioSection) h2 {
+        font-size: 1.3em;
+    }
+    button, .button-primary, .button-secondary {
+        font-size: 0.85em;
+    }
+    .botones-item button {
+        font-size: 0.7em;
+    }
+}
