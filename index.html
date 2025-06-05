@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DE Group S.A.</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50"> 
+</head>
+<body>
+    <header>
+        <h1>DE GROUP S.A.</h1>
+        <nav>
+            <button id="btnInicio" class="nav-button">Inicio</button> 
+            <button id="btnInteresados" class="nav-button">Clientes</button>
+            <button id="btnProductos" class="nav-button">Productos</button>
+            <button id="btnPresupuestos" class="nav-button">Presupuestos</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicioSection" class="content-section">
+            <div class="inicio-content-wrapper"> <h2>Bienvenido a DE Group S.A.</h2>
+                <p>Una empresa joven con raíces firmes en el trabajo, la innovación y el compromiso con el campo argentino. Nacimos con una visión clara: Brindar soluciones robustas, funcionales y confiables para el sector Agroindustrial.
+                   Con base en Cañada de Gómez, Santa Fe, y respaldados por años de experiencia en la industria metalúrgica, hoy llevamos a cada productor, contratista y taller mecánico un producto pensado para durar, rendir y superar las exigencias del trabajo diario.</p>
+                
+                <div>
+                    <h3>Nuestra Misión</h3>
+                    <p>Desarrollar y fabricar accesorios agrícolas que mejoren el rendimiento, la seguridad y la durabilidad de la maquinaria agrícola, aportando soluciones concretas a los desafíos del trabajo en el campo, con una visión enfocada en la mejora continua, la eficiencia y el crecimiento sostenible.</p>
+                </div>
+
+                <div>
+                    <h3>Nuestros Valores</h3>
+                    <ul>
+                        <li>Compromiso: Cumplimos lo que prometemos. Nuestro nombre está respaldado por la calidad de lo que entregamos.</li>
+                        <li>Innovación: No nos conformamos. Buscamos siempre mejorar cada diseño, cada proceso y cada experiencia del cliente.</li>
+                        <li>Trabajo Argentino: Creemos en la industria nacional. Nuestra producción es 100% local, fomentando el desarrollo regional y el empleo.</li>
+                        <li>Cercanía: Nos gusta escuchar. Conocemos el esfuerzo del productor y trabajamos codo a codo con nuestros clientes.</li>
+                        <li>Resistencia: Fabricamos productos pensados para el esfuerzo extremo, con materiales y procesos que garantizan durabilidad.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Servicios Destacados</h3>
+                    <ul>
+                        <li>Fabricación de Pisapalos Agrícolas</li>
+                        <li>Diseños Personalizados a Pedido</li>
+                        <li>Venta Mayorista y Distribución</li>
+                        <li>Asesoramiento Técnico Directo</li>
+                        <li>Servicios Técnicos a Sembradoras</li>
+                        <li>Soporte técnico en Agricultura de Precisión</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contacto</h3>
+                    <p><strong>Email:</strong> <a href="DyEGroupOficial@Gmail.com" class="inicio-link">contacto@degroupsa.com</a></p>
+                    <p><strong>Teléfono:</strong> (3471) 315-826 (Cañada de Gómez, Santa Fe, Argentina)</p>
+                    <p>Visítanos en Agroactiva del 4 al 7 de junio para conocer más.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="interesadosSection" class="content-section">
+            <h2>Registro de Clientes</h2>
+            <form id="formInteresado">
+                <h3>Añadir/Editar Cliente</h3>
+                <input type="hidden" id="interesadoId" name="interesadoId">
+                <div>
+                    <label for="nombreInteresado">Nombre Completo:</label>
+                    <input type="text" id="nombreInteresado" name="nombreInteresado" required>
+                </div>
+                <div>
+                    <label for="emailInteresado">Email:</label>
+                    <input type="email" id="emailInteresado" name="emailInteresado">
+                </div>
+                <div>
+                    <label for="telefonoInteresado">Teléfono:</label>
+                    <input type="tel" id="telefonoInteresado" name="telefonoInteresado">
+                </div>
+                <div>
+                    <label for="empresaInteresado">Empresa (Opcional):</label>
+                    <input type="text" id="empresaInteresado" name="empresaInteresado">
+                </div>
+                <div>
+                    <label for="localidadInteresado">Localidad (Opcional):</label>
+                    <input type="text" id="localidadInteresado" name="localidadInteresado">
+                </div>
+                <div>
+                    <label for="notasInteresado">Notas Adicionales:</label>
+                    <textarea id="notasInteresado" name="notasInteresado" rows="3"></textarea>
+                </div>
+                <button type="submit" class="button-primary">Guardar Nuevo Cliente</button>
+                <button type="button" id="btnCancelarEdicionInteresado" class="button-secondary" style="display:none;">Cancelar Edición</button>
+            </form>
+            <hr>
+            <h3>Listado de Clientes</h3>
+            <div id="listaInteresados">
+                <p>Cargando Clientes...</p>
+            </div>
+        </section>
+
+      <section id="productosSection" class="content-section">
+          <h2>Gestión de Productos</h2>
+          <form id="formProducto">
+              <h3>Añadir/Editar Producto</h3>
+              <input type="hidden" id="productoId" name="productoId">
+              <div>
+                  <label for="nombreProducto">Nombre del Producto:</label>
+                  <input type="text" id="nombreProducto" name="nombreProducto" required>
+              </div>
+              <div>
+                  <label for="descripcionProducto">Descripción:</label>
+                  <textarea id="descripcionProducto" name="descripcionProducto" rows="3"></textarea>
+              </div>
+              <div>
+                  <label for="precioProducto">Precio Unitario:</label>
+                  <input type="text" id="precioProducto" name="precioProducto" placeholder="Ej: 150000" required inputmode="numeric" pattern="[0-9\.]*">              </div>
+              <div>
+                  <label for="unidadProducto">Cantidad:</label>
+                  <input type="number" id="unidadProducto" name="unidadProducto" step="1" min="1" value="1" required>
+              </div>
+              <button type="submit" class="button-primary">Guardar Producto</button>
+              <button type="button" id="btnCancelarEdicionProducto" class="button-secondary" style="display:none;">Cancelar Edición</button>
+          </form>
+          <hr>
+          <h3>Listado de Productos</h3>
+          <div id="listaProductos">
+              <p>Cargando productos...</p>
+          </div>
+      </section>
+
+        <section id="presupuestosSection" class="content-section">
+            <h2>Gestión de Presupuestos</h2>
+            <button id="btnNuevoPresupuesto" class="button-primary">Nuevo Presupuesto</button>
+            <div id="areaFormularioPresupuesto" style="display:none; margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
+                <h3 id="tituloFormPresupuesto">Nuevo Presupuesto</h3>
+                <form id="formPresupuesto">
+                    <input type="hidden" id="presupuestoId" name="presupuestoId">
+                    <div>
+                        <label for="selectInteresadoParaPresupuesto">Cliente:</label>
+                        <select id="selectInteresadoParaPresupuesto" name="interesadoId" required>
+                            <option value="">Seleccione un Cliente...</option>
+                        </select>
+                    </div>
+                    <fieldset style="margin-top: 15px; padding: 10px;">
+                        <legend>Añadir Productos</legend>
+                        <div>
+                            <label for="selectProductoPresupuesto">Producto:</label>
+                            <select id="selectProductoPresupuesto" name="productoId">
+                                <option value="">Seleccione un producto...</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cantidadProductoPresupuesto">Cantidad:</label>
+                            <input type="number" id="cantidadProductoPresupuesto" name="cantidad" value="1" min="1" style="width: 80px;">
+                        </div>
+                        <button type="button" id="btnAnadirProductoItem" class="button-secondary" style="margin-top: 10px;">Añadir Producto</button>
+                    </fieldset>
+                    <h4 style="margin-top: 20px;">Productos Añadidos:</h4>
+                    <div id="itemsPresupuestoActualDiv" style="min-height: 50px; border: 1px dashed #eee; padding: 10px;">
+                        <p><em>Aún no se han añadido productos.</em></p>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <label for="terminosPresupuesto">Términos y Condiciones:</label>
+                        <textarea id="terminosPresupuesto" name="terminos" rows="3"></textarea>
+                    </div>
+                    <div style="margin-top: 15px; text-align: right; padding-right: 10px;">
+                        <p>Subtotal: <span id="presupuestoSubtotalSpan">$0.00</span></p>
+                        <p><strong>Total: <span id="presupuestoTotalSpan">$0.00</span></strong></p>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button type="submit" class="button-primary">Guardar Presupuesto</button>
+                        <button type="button" id="btnCancelarPresupuesto" class="button-secondary">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            <hr style="margin-top: 30px; margin-bottom: 20px;">
+            <h3>Presupuestos Guardados</h3>
+            <div id="listaPresupuestos">
+                <p>Cargando presupuestos..</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; DE Group S.A. © 2025. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
